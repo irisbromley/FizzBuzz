@@ -11,12 +11,16 @@ body {
 }
 
 .display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: transparent;
     border: none;
     color: #ff7700;
     font-size: 150px;
     text-align: center;
     width: 100%;
+    min-height: 200px;
 }
 
 h1 {

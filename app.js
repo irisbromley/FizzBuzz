@@ -4,47 +4,83 @@ let fizzButton = document.querySelector('#fizz');
 let buzzButton = document.querySelector('#buzz');
 let FizzBuzzButton = document.querySelector('#fizzBuzz');
 
+let currentNumber = 0
 
+function isFizz() {
+    return currentNumber % 3 === 0 && currentNumber !== 0;
+}
+
+function isBuzz() {
+    return currentNumber % 5 === 0 && currentNumber !== 0
+}
 
 nextButton.addEventListener("click", function increment() {
-    let currentNumber = display.value = parseInt(display.value) + 1;
-    console.log(currentNumber)
+    if (
+        isFizz() || isBuzz()
+    )
+        fail();
+    else {
+        currentNumber++;
+        display.innerHTML = currentNumber;
+        console.log(currentNumber);
+    }
 });
 // if the shown number is fizz or buzz or fizzbuzz and the correct button gets hit
 fizzButton.addEventListener("click", function () {
-    if (display.value % 3 === 0) { success(); }
-    else (display.value = "Ouch")
-    return
+    if (isFizz() && isBuzz()) {
+        fail();
+    }
+    else if (isFizz()) {
+        success();
+    }
+    else {
+        fail();
+    }
 });
 
 buzzButton.addEventListener("click", function () {
-    if (display.value % 5 === 0) success();
-    else (display.value = "Ouch")
+    if (isFizz() && isBuzz()) {
+        fail();
+    }
+    else if (isBuzz()) {
+        success();
+    }
+    else {
+        fail();
+    }
 });
 
 FizzBuzzButton.addEventListener("click", function () {
-    if (display.value % 3 === 0 && display.value % 5 === 0) success();
-    else (display.value = "Ouch")
-})
+    if (isFizz() && isBuzz()) {
+        success();
+    }
+    else {
+        fail();
+    }
+});
+
+
+let timer;
 
 
 function success() {
-    display.value = "Yay"
+    display.innerHTML = "Yay"
     confetti();
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        console.log("Delayed for 2 second.");
+        currentNumber++;
+        display.innerHTML = currentNumber;
+    }, 1500);
 }
 
 function fail() {
-    display.value = "Ouch"
-}
+    display.innerHTML = "💩";
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        console.log("Delayed for 2 second.");
+        display.innerHTML = currentNumber;
+    }, 1500);
 
-
-function fizzbuzz() {
-    for (let i = 1; i <= 101; i++) {
-        if (i % 3 === 0 && i % 5 === 0) display.value = "FizzBuzz";
-        else if (i % 5 === 0) display.value = "Buzz";
-        else if (i % 3 === 0) display.value = "Fizz";
-        else (display.value = i + " ");
-    };
 }
-// fizzbuzz();
 
