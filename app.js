@@ -3,6 +3,7 @@ let nextButton = document.querySelector('#next');
 let fizzButton = document.querySelector('#fizz');
 let buzzButton = document.querySelector('#buzz');
 let FizzBuzzButton = document.querySelector('#fizzBuzz');
+let restart = document.querySelector('#restart');
 
 let currentNumber = 0
 
@@ -13,6 +14,16 @@ function isFizz() {
 function isBuzz() {
     return currentNumber % 5 === 0 && currentNumber !== 0
 }
+
+// innerText change from "Start" to "Next"
+nextButton.addEventListener("click", function () {
+    nextButton.textContent = "Next"
+})
+
+restart.addEventListener("click", function () {
+    currentNumber = 1;
+    display.innerHTML = currentNumber;
+})
 
 nextButton.addEventListener("click", function increment() {
     if (
@@ -64,23 +75,21 @@ let timer;
 
 
 function success() {
-    display.innerHTML = "Yay"
+    display.innerHTML = "👌"
     confetti();
     clearTimeout(timer);
     timer = setTimeout(() => {
-        console.log("Delayed for 2 second.");
         currentNumber++;
         display.innerHTML = currentNumber;
-    }, 1500);
+    }, 1000);
 }
 
 function fail() {
     display.innerHTML = "💩";
     clearTimeout(timer);
     timer = setTimeout(() => {
-        console.log("Delayed for 2 second.");
         display.innerHTML = currentNumber;
-    }, 1500);
+    }, 1000);
 
 }
 
