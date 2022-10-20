@@ -21,8 +21,9 @@ nextButton.addEventListener("click", function () {
 })
 
 restart.addEventListener("click", function () {
-    currentNumber = 1;
+    currentNumber = 0;
     display.innerHTML = currentNumber;
+    nextButton.textContent = "Start"
 })
 
 nextButton.addEventListener("click", function increment() {
