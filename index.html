@@ -21,8 +21,21 @@
             <button class="smallButton" id="fizz">Fizz</button>
             <button class="smallButton" id="buzz">Buzz</button>
             <button class="bigButton" id="fizzBuzz">Fizzbuzz</button>
-            <button class="nextButton" id="restart">Restart ↻</button>
+            <button id="modalRulesToggle">How to play</button>
+            <button class="nextButton" id="restart">↻</button>
         </div>
+
+
+        <div class="modal" id="modalRules">
+            <div class="modal-content">
+                <p>Tap <strong>Fizz</strong> when counter is divisible by <strong>3</strong>. <br></p>
+                <p>Tap <strong>Buzz</strong> when counter is divisible by <strong>5</strong>. <br></p>
+                <p> Tap <strong>Fizzbuzz</strong> when counter is divisible by <strong> 3 & 5</strong>. </p>
+                <span class="closeBtn">&times; I got it!</span>
+            </div>
+        </div>
+
+
     </div>
     <script src="app.js"></script>
 </body>

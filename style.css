@@ -5,28 +5,38 @@ body {
 
 .container {
     margin: auto;
-    margin-top: 100px;
     width: 400px;
     color: #ffa6f3;
 }
 
 .display {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
     border: none;
     color: #1dcf52;
     font-size: 150px;
+    height: 200px;
     text-align: center;
-    width: 100%;
-    min-height: 200px;
 }
 
 h1 {
+    padding-top: 30px;
     text-align: center;
 }
 
+
+#understandRules {
+    background-color: none;
+
+}
+
+.active {
+    border: 1px solid pink;
+}
+
+.active h4 {
+    line-height: 30px;
+    font-weight: 200;
+
+}
 
 button {
     color: #ffffff;
@@ -54,6 +64,53 @@ button:hover {
     transition: ease-in-out 0.4s;
 }
 
+#restart {
+    color: #2f82fe;
+    font-size: 50px;
+    background-color: transparent;
+}
+
+#modalRulesToggle {
+    background-color: transparent;
+    color: #ffa6f3;
+    font-size: 20px;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 25% auto;
+    padding: 40px 20px;
+    width: 70%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    font-size: 25px;
+    line-height: 1.2;
+    color: #ff52e8;
+}
+
+.closeBtn {
+    float: right;
+    padding: 5px;
+    font-size: 22px;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .playButtons {
     display: grid;

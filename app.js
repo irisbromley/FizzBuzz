@@ -5,6 +5,25 @@ let buzzButton = document.querySelector('#buzz');
 let FizzBuzzButton = document.querySelector('#fizzBuzz');
 let restart = document.querySelector('#restart');
 
+let modal = document.querySelector('#modalRules');
+let modalBtn = document.querySelector('#modalRulesToggle');
+let closeBtn = document.querySelector('.closeBtn')
+
+modalBtn.addEventListener("click", function openModal() {
+    modal.style.display = 'block';
+});
+
+closeBtn.addEventListener("click", function closeModal() {
+    modal.style.display = 'none';
+})
+
+window.addEventListener("click", function outsideClick(e) {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+})
+
+
 let currentNumber = 0
 
 function isFizz() {
@@ -76,17 +95,17 @@ let timer;
 
 
 function success() {
-    display.innerHTML = "👌"
+    display.innerHTML = "⭐"
     confetti();
     clearTimeout(timer);
+    currentNumber++;
     timer = setTimeout(() => {
-        currentNumber++;
         display.innerHTML = currentNumber;
     }, 1000);
 }
 
 function fail() {
-    display.innerHTML = "💩";
+    display.innerHTML = "😭";
     clearTimeout(timer);
     timer = setTimeout(() => {
         display.innerHTML = currentNumber;
